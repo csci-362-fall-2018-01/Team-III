@@ -4,11 +4,14 @@
 
 cd $(dirname 0)
 
+#Removes all past instances of results
 rm -rf ../testCasesExecutables/*.class
 rm -rf ../reports/report.html
 rm -rf ../temp/*.txt
 
-echo "<TABLE BORDER='6' CELLPADDING='5' CELLSPACING='4'>" >> ../reports/report.html
+#Create table for results
+
+echo "<TABLE BORDER='6'>" >> ../reports/report.html
 echo "<TR>" >> ../reports/report.html
 echo "</TR>" >> ../reports/report.html
 echo "<TR>" >> ../reports/report.html
@@ -19,25 +22,24 @@ echo "<TH>Method</TH>" >> ../reports/report.html
 echo "<TH>Inputs</TH>" >> ../reports/report.html
 echo "<TH>Expected</TH>" >> ../reports/report.html
 echo "<TH>Actual</TH>" >> ../reports/report.html
-echo "<TH>Test Passed?</TH>" >> ../reports/report.html
 echo "</TR>" >> ../reports/report.html
 
-
+#Compiles executables
 javac ../testCasesExecutables/*
 wait
 
 for file in ../testCases/*.txt
 do
   i=0;
-  filenopath=${file##*/}
-  filenoext=${filenopath%.*}
+  fileNoPath=${file##*/}
+  fileNoExt=${fileNoPath%.*}
 
   while read line 
   do
   #ignores lines with # at start
     [[ "${line:0:2}" = // ]] && continue
     arr[$i]="$line"
-    echo ${arr[$i]} >> ../temp/"$filenoext"report.txt
+    echo ${arr[$i]} >> ../temp/"$fileNoExt"report.txt
     i=$((i+1))
   done < $file
 
@@ -49,23 +51,11 @@ do
   declare inputs=${arr[4]}
   declare expected=${arr[5]}
 
-  
+
   if [[ $component == "ContrastChecker" ]]
   then
     cd ../testCasesExecutables
-    java ContrastCheckerDriver "$testid" "$requirement" "$component" "$method" "$inputs" "$expected" >> ../temp/"$filenoext"report.txt &
-  fi
-
-  if [[ $component == "ColorConverter" ]]
-  then
-    cd ../testCasesExecutables
-    java ColorConverterDriver "$testid" "$requirement" "$component" "$method" "$inputs" "$expected" >> ../temp/"$filenoext"report.txt &
-  fi
-
-  if [[ $component == "DistanceCalculator" ]]
-  then
-    cd ../testCasesExecutables
-    java DistanceCalculatorDriver "$testid" "$requirement" "$component" "$method" "$inputs" "$expected" >> ../temp/"$filenoext"report.txt &
+    java ContrastCheckerDriver "$testid" "$requirement" "$component" "$method" "$inputs" "$expected" >> ../temp/"$fileNoExt"report.txt &
   fi
 done
 

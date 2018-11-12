@@ -1,0 +1,7 @@
+3
+Gets contrast ratio!
+ContrastChecker
+getContrastRatio5DigitRound()
+255,255,255;0,0,0
+21.0
+// --END--
