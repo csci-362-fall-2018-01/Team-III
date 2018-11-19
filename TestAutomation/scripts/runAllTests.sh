@@ -2,16 +2,15 @@
 #runAllTests.sh
 #Lawson, Drayton, Nick
 
-cd $(dirname 0)
+cd $(dirname $0)
 
-#Removes all past instances of results
+#cant compile compiled java classes
 rm -rf ../testCasesExecutables/*.class
 rm -rf ../reports/report.html
 rm -rf ../temp/*.txt
 
-#Create table for results
-
-echo "<TABLE BORDER='6'>" >> ../reports/report.html
+#set up table
+echo "<TABLE BORDER='5' CELLPADDING='4' CELLSPACING='3'>" >> ../reports/report.html
 echo "<TR>" >> ../reports/report.html
 echo "</TR>" >> ../reports/report.html
 echo "<TR>" >> ../reports/report.html
@@ -22,24 +21,25 @@ echo "<TH>Method</TH>" >> ../reports/report.html
 echo "<TH>Inputs</TH>" >> ../reports/report.html
 echo "<TH>Expected</TH>" >> ../reports/report.html
 echo "<TH>Actual</TH>" >> ../reports/report.html
+echo "<TH>Test Passed?</TH>" >> ../reports/report.html
 echo "</TR>" >> ../reports/report.html
 
-#Compiles executables
+#compiles java classes
 javac ../testCasesExecutables/*
 wait
 
 for file in ../testCases/*.txt
 do
   i=0;
-  fileNoPath=${file##*/}
-  fileNoExt=${fileNoPath%.*}
+  filenopath=${file##*/}
+  filenoext=${filenopath%.*}
 
   while read line 
   do
   #ignores lines with # at start
     [[ "${line:0:2}" = // ]] && continue
     arr[$i]="$line"
-    echo ${arr[$i]} >> ../temp/"$fileNoExt"report.txt
+    echo ${arr[$i]} >> ../temp/"$filenoext"report.txt
     i=$((i+1))
   done < $file
 
@@ -51,11 +51,22 @@ do
   declare inputs=${arr[4]}
   declare expected=${arr[5]}
 
-
   if [[ $component == "ContrastChecker" ]]
   then
     cd ../testCasesExecutables
-    java ContrastCheckerDriver "$testid" "$requirement" "$component" "$method" "$inputs" "$expected" >> ../temp/"$fileNoExt"report.txt &
+    java ContrastCheckerDriver "$testid" "$requirement" "$component" "$method" "$inputs" "$expected" >> ../temp/"$filenoext"report.txt &
+  fi
+
+  if [[ $component == "ColorConverter" ]]
+  then
+    cd ../testCasesExecutables
+    java ColorConverterDriver "$testid" "$requirement" "$component" "$method" "$inputs" "$expected" >> ../temp/"$filenoext"report.txt &
+  fi
+
+  if [[ $component == "DistanceCalculator" ]]
+  then
+    cd ../testCasesExecutables
+    java DistanceCalculatorDriver "$testid" "$requirement" "$component" "$method" "$inputs" "$expected" >> ../temp/"$filenoext"report.txt &
   fi
 done
 

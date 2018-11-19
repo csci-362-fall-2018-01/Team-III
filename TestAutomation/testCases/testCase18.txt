@@ -1,0 +1,7 @@
+18
+this method converts rgb values to hsl values 
+ColorConverter
+rgb2hsl()
+255,255,255
+hsl(0, 0%, 100%)
+// --END--

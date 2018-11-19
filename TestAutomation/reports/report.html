@@ -1,4 +1,4 @@
-<TABLE BORDER='6'>
+<TABLE BORDER='5' CELLPADDING='4' CELLSPACING='3'>
 <TR>
 </TR>
 <TR>
@@ -9,6 +9,7 @@
 <TH>Inputs</TH>
 <TH>Expected</TH>
 <TH>Actual</TH>
+<TH>Test Passed?</TH>
 </TR>
 <TR ALIGN='CENTER'>
 <TD>1
@@ -24,6 +25,8 @@
 <TD>1.0
 </TD>
 <TD>1.0
+</TD>
+<TD>Passed
 </TD>
 </TR>
 <TR ALIGN='CENTER'>
@@ -41,6 +44,8 @@
 </TD>
 <TD>1.0
 </TD>
+<TD>Passed
+</TD>
 </TR>
 <TR ALIGN='CENTER'>
 <TD>3
@@ -56,6 +61,8 @@
 <TD>21.0
 </TD>
 <TD>21.0
+</TD>
+<TD>Passed
 </TD>
 </TR>
 <TR ALIGN='CENTER'>
@@ -73,6 +80,8 @@
 </TD>
 <TD>21.0
 </TD>
+<TD>Passed
+</TD>
 </TR>
 <TR ALIGN='CENTER'>
 <TD>5
@@ -88,6 +97,368 @@
 <TD>8.23
 </TD>
 <TD>8.23
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>6
+</TD>
+<TD>this method gets the luminosity
+</TD>
+<TD>ContrastChecker
+</TD>
+<TD>getLuminosity()
+</TD>
+<TD>255,255,255
+</TD>
+<TD>1.0
+</TD>
+<TD>1.0
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>7
+</TD>
+<TD>this method gets the luminosity
+</TD>
+<TD>ContrastChecker
+</TD>
+<TD>getLuminosity()
+</TD>
+<TD>0,0,0
+</TD>
+<TD>0.0
+</TD>
+<TD>0.0
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>8
+</TD>
+<TD>this method gets the luminosity
+</TD>
+<TD>ContrastChecker
+</TD>
+<TD>getLuminosity()
+</TD>
+<TD>255,0,255
+</TD>
+<TD>0.2848
+</TD>
+<TD>0.2848
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>9
+</TD>
+<TD>this method gets the luminosity
+</TD>
+<TD>ContrastChecker
+</TD>
+<TD>getLuminosity()
+</TD>
+<TD>255,255,0
+</TD>
+<TD>0.9278
+</TD>
+<TD>0.9278
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>10
+</TD>
+<TD>this method gets the luminosity
+</TD>
+<TD>ContrastChecker
+</TD>
+<TD>getLuminosity()
+</TD>
+<TD>0,255,0
+</TD>
+<TD>0.7152
+</TD>
+<TD>0.7152
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>11
+</TD>
+<TD>Calculates color's distance
+</TD>
+<TD>DistanceCalculator
+</TD>
+<TD>calculate()
+</TD>
+<TD>255,255,255;255,255,255
+</TD>
+<TD>0.0
+</TD>
+<TD>0.0
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>12
+</TD>
+<TD>Calculates color's distance
+</TD>
+<TD>DistanceCalculator
+</TD>
+<TD>calculate()
+</TD>
+<TD>0,0,0;0,0,0
+</TD>
+<TD>0.0
+</TD>
+<TD>0.0
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>13
+</TD>
+<TD>Calculates color's distance
+</TD>
+<TD>DistanceCalculator
+</TD>
+<TD>calculate()
+</TD>
+<TD>255,255,255;0,0,0
+</TD>
+<TD>367.77
+</TD>
+<TD>367.77
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>14
+</TD>
+<TD>Calculates color's distance
+</TD>
+<TD>DistanceCalculator
+</TD>
+<TD>calculate()
+</TD>
+<TD>0,0,0;255,255,255
+</TD>
+<TD>367.77
+</TD>
+<TD>367.77
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>15
+</TD>
+<TD>Calculates color's distance
+</TD>
+<TD>DistanceCalculator
+</TD>
+<TD>calculate()
+</TD>
+<TD>2,2,2;0,0,0
+</TD>
+<TD>2.88
+</TD>
+<TD>2.88
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>16
+</TD>
+<TD>this method converts rgb values to hsl values
+</TD>
+<TD>ColorConverter
+</TD>
+<TD>rgb2hsl()
+</TD>
+<TD>0,0,255
+</TD>
+<TD>hsl(240, 100%, 50%)
+</TD>
+<TD>hsl(240, 100%, 50%)
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>17
+</TD>
+<TD>this method converts rgb values to hsl values
+</TD>
+<TD>ColorConverter
+</TD>
+<TD>rgb2hsl()
+</TD>
+<TD>100,100,100
+</TD>
+<TD>hsl(0, 0%, 39%)
+</TD>
+<TD>hsl(0, 0%, 39%)
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>18
+</TD>
+<TD>this method converts rgb values to hsl values
+</TD>
+<TD>ColorConverter
+</TD>
+<TD>rgb2hsl()
+</TD>
+<TD>255,255,255
+</TD>
+<TD>hsl(0, 0%, 100%)
+</TD>
+<TD>hsl(0, 0%, 100%)
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>19
+</TD>
+<TD>this method converts rgb values to hsl values
+</TD>
+<TD>ColorConverter
+</TD>
+<TD>rgb2hsl()
+</TD>
+<TD>0,0,0
+</TD>
+<TD>hsl(0, 0%, 0%)
+</TD>
+<TD>hsl(0, 0%, 0%)
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>20
+</TD>
+<TD>this method converts rgb values to hsl values
+</TD>
+<TD>ColorConverter
+</TD>
+<TD>rgb2hsl()
+</TD>
+<TD>2,3,4
+</TD>
+<TD>hsl(210, 33%, 1%)
+</TD>
+<TD>hsl(210, 33%, 1%)
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>21
+</TD>
+<TD>this method gets the rgb from hexvalues
+</TD>
+<TD>ColorConverter
+</TD>
+<TD>hex2rgb()
+</TD>
+<TD>#FFFFFF
+</TD>
+<TD>255,255,255
+</TD>
+<TD>255,255,255
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>22
+</TD>
+<TD>this method gets the rgb from hexvalues
+</TD>
+<TD>ColorConverter
+</TD>
+<TD>hex2rgb()
+</TD>
+<TD>FFFFFF
+</TD>
+<TD>255,255,255
+</TD>
+<TD>255,255,255
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>23
+</TD>
+<TD>this method gets the rgb from hexvalues
+</TD>
+<TD>ColorConverter
+</TD>
+<TD>hex2rgb()
+</TD>
+<TD>#000
+</TD>
+<TD>0,0,0
+</TD>
+<TD>0,0,0
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>24
+</TD>
+<TD>this method gets the rgb from hexvalues
+</TD>
+<TD>ColorConverter
+</TD>
+<TD>hex2rgb()
+</TD>
+<TD>#456421
+</TD>
+<TD>69,100,33
+</TD>
+<TD>69,100,33
+</TD>
+<TD>Passed
+</TD>
+</TR>
+<TR ALIGN='CENTER'>
+<TD>25
+</TD>
+<TD>this method gets the rgb from hexvalues
+</TD>
+<TD>ColorConverter
+</TD>
+<TD>hex2rgb()
+</TD>
+<TD>#00
+</TD>
+<TD>null
+</TD>
+<TD>null
+</TD>
+<TD>Passed
 </TD>
 </TR>
 </TABLE>

@@ -1,0 +1,7 @@
+24
+this method gets the rgb from hexvalues
+ColorConverter
+hex2rgb()
+#456421
+69,100,33
+// --END--

@@ -1,0 +1,8 @@
+22
+this method gets the rgb from hexvalues
+ColorConverter
+hex2rgb()
+FFFFFF
+255,255,255
+255,255,255
+Passed

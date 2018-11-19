@@ -22,19 +22,40 @@ public class ContrastCheckerDriver {
 
     String[] inputList = inputs.split(";");
 
+    if(method.equals("getLuminosity()"))
+    {
+      String[] rgb = inputList[0].split(",");
+      int[] rgbint = new int[rgb.length];
+      for (int i=0; i < rgb.length; i++) {
+          rgbint[i] = Integer.parseInt(rgb[i]);
+      }
+
+      Color rgbColor = new Color(rgbint[0],rgbint[1],rgbint[2]);
+      Double actual = ContrastChecker.getLuminosity(rgbColor);
+      //Boolean result = actual.toString().equals(expected);
+      Boolean compareResults = actual.toString().equals(expected);
+        String result;
+        if(compareResults.toString().equals("true"))
+        result = "Passed";
+        else
+        result = "Failed";
+       
+      
+      System.out.println(actual.toString());
+      System.out.println(result.toString());
+    }
+
     if(method.equals("getContrastRatio5DigitRound()"))
     {
       //formatting inputs
       String[] fgrgb = inputList[0].split(",");
       String[] bgrgb = inputList[1].split(",");
 
-      //Pareses Foreground Color
       int[] fgint = new int[fgrgb.length];
       for (int i=0; i < fgrgb.length; i++) {
           fgint[i] = Integer.parseInt(fgrgb[i]);
       }
 
-      //Parses Background Color
       int[] bgint = new int[bgrgb.length];
       for (int i=0; i < bgrgb.length; i++) {
           bgint[i] = Integer.parseInt(bgrgb[i]);
@@ -45,12 +66,18 @@ public class ContrastCheckerDriver {
 
       //gets result and compares to expected
       Double actual = ContrastChecker.getConstrastRatio5DigitRound(fgcolor,bgcolor);
-     
+      //Boolean result = actual.toString().equals(expected);
       Boolean compareResults = actual.toString().equals(expected);
         String result;
+        if(compareResults.toString().equals("true"))
+        result = "Passed";
+        else
+        result = "Failed";
        
 
       System.out.println(actual.toString());
+      //System.out.println(result.toString());
+      System.out.println(result);
     }
   }
 }
