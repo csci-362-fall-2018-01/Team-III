@@ -28,12 +28,14 @@ echo "</TR>" >> ../reports/report.html
 javac ../testCasesExecutables/*
 wait
 
+#For every test case do...
 for file in ../testCases/*.txt
 do
   i=0;
   filenopath=${file##*/}
   filenoext=${filenopath%.*}
 
+  #Reads info from test case documents and saves them to the parameter array 
   while read line 
   do
   #ignores lines with # at start
@@ -51,6 +53,7 @@ do
   declare inputs=${arr[4]}
   declare expected=${arr[5]}
 
+  #Figures which tests to run based on the name of the component 
   if [[ $component == "ContrastChecker" ]]
   then
     cd ../testCasesExecutables
@@ -72,6 +75,7 @@ done
 
 wait
 
+#Prints results 
 for file in ../temp/*
 do
 echo "<TR ALIGN='CENTER'>" >> ../reports/report.html

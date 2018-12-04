@@ -123,15 +123,19 @@ public final class ColorConverter {
      */
     public static Color hex2Rgb(String colorStr) {
         if (colorStr.charAt(0) == '#') {
+            //Make 1 in line below 0
             String str = colorStr.substring(1);
             if (str.matches(HEXADECIMAL_DICTIONNARY)
                     && str.length() == RGB_HEXA_LENGTH) {
                 return getNewColor(str);
             } else if (str.matches(HEXADECIMAL_DICTIONNARY)
-                    && str.length() == RGB_SHORT_HEXA_LENGTH) {
+                    && str.length() == RGB_SHORT_HEXA_LENGTH)
+                     {
+                
                 return getNewColorShortHexa(str);
             }
         } else if (colorStr.matches(HEXADECIMAL_DICTIONNARY)) {
+            //ADD -1 behind colorStr.length for fault
             if (colorStr.length() == RGB_HEXA_LENGTH) {
                 return getNewColor(colorStr);
             } else if (colorStr.length() == RGB_SHORT_HEXA_LENGTH) {
@@ -203,6 +207,12 @@ public final class ColorConverter {
         float h = hsvTab[HUE] * MAX_ANGLE;
         float l = (CONSTANT_SL_COMPONENTS_TWO - (hsvTab[SATURATION] * CONSTANT_SL_COMPONENTS_HUNDRED) / CONSTANT_SL_COMPONENTS_HUNDRED)
                 * (hsvTab[BRIGHTNESS] * CONSTANT_SL_COMPONENTS_HUNDRED) / CONSTANT_SL_COMPONENTS_TWO;
+                //Fault injected here
+                //Changed a / to a *
+
+                //COMMENT OUT LINE ABOUT AND UNCOMMENT LINE BELOW
+
+                //(hsvTab[BRIGHTNESS] * CONSTANT_SL_COMPONENTS_HUNDRED) * CONSTANT_SL_COMPONENTS_TWO;
         float s = (hsvTab[SATURATION] * CONSTANT_SL_COMPONENTS_HUNDRED) * (hsvTab[BRIGHTNESS] * CONSTANT_SL_COMPONENTS_HUNDRED)
                 / (l < CONSTANT_S_COMPONENTS_FIFTY ? l * CONSTANT_SL_COMPONENTS_TWO : CONSTANT_S_COMPONENTS_TWO_HUNDRED - l * CONSTANT_SL_COMPONENTS_TWO);
         return ("hsl(" + Float.valueOf(h).intValue()
